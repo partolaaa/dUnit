@@ -11,19 +11,19 @@
     <img th:src="@{/img/logoFade.png}" alt="logo">
     <form th:method="POST" th:action="@{/perform_login}">
         <div>
-            <label for="login-input" th:text="'Email address'"></label>
+            <label for="login-input" th:text="#{login.email}"></label>
             <input type="text" id="login-input" name="email" required>
         </div>
         <div>
-            <label for="password-input" th:text="'Password'"></label>
+            <label for="password-input" th:text="#{login.password}"></label>
             <input type="password" id="password-input" name="password" required>
         </div>
         <div class="submit-btn-centered">
-            <button type="submit" th:text="'Login'"></button>
+            <button type="submit" th:text="#{login.submit.login}"></button>
         </div>
     </form>
     <div>
-        <p th:text="'New to dUnit?'"></p><a th:href="@{/auth/register}" th:text="'Create an account'"></a>
+        <p th:text="#{login.new.user}"></p><a th:href="@{/auth/register}" th:text="#{login.create}"></a>
     </div>
 </div>
 
