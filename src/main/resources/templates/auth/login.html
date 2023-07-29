@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/auth.css}">
+</head>
+<body>
+
+<div class="main-container">
+    <img th:src="@{/img/logoFade.png}" alt="logo">
+    <form th:method="POST" th:action="@{/perform_login}">
+        <div>
+            <label for="login-input" th:text="'Email address'"></label>
+            <input type="text" id="login-input" name="email" required>
+        </div>
+        <div>
+            <label for="password-input" th:text="'Password'"></label>
+            <input type="password" id="password-input" name="password" required>
+        </div>
+        <div class="submit-btn-centered">
+            <button type="submit" th:text="'Login'"></button>
+        </div>
+    </form>
+    <div>
+        <p>New to dMarket?</p><a th:href="@{/auth/register}" th:text="'Create an account'"></a>
+    </div>
+</div>
+
+</body>
+</html>
