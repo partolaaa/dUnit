@@ -28,8 +28,8 @@ public class SimpleUserServiceImpl implements SimpleUserService {
     }
 
     @Override
-    public Optional<SimpleUser> findUserByUserId(Long userId) {
-        return simpleUserDAO.getSimpleUserByUserId(userId);
+    public Optional<SimpleUser> findUserByUserId(Long id) {
+        return simpleUserDAO.getSimpleUserById(id);
     }
 
     @Override
