@@ -1,8 +1,19 @@
 <header>
     <div>
         <ion-icon id="menu" name="menu-outline"></ion-icon>
+        <div id="side-menu" class="side-menu">
+            <button id="close-menu" class="close-menu">&times;</button>
+            <div>
+                <ion-icon name="storefront-outline"></ion-icon>
+                <a href="/" th:text="#{marketplace.title}"></a>
+            </div>
+            <div>
+                <ion-icon name="pricetags-outline"></ion-icon>
+                <a href="/my-listings" th:text="#{listings.title}"></a>
+            </div>
+        </div>
         <img id="logo" src="/img/logoFade.png" alt="logo"/>
-        <span id="profile" th:text="${headerUserInfo.username}"></span>
+        <a id="profile" th:href="@{/profile/{username} (username = ${headerUserInfo.username})}" th:text="${headerUserInfo.username}"></a>
     </div>
     <div>
         <div class="language-dropdown">

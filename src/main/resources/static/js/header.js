@@ -1,50 +1,52 @@
 document.getElementById('profile').onclick = function () {
     location.href='/profile/lolo'
 };
-document.getElementById('profileSettings').onclick = showSettings;
-
-document.getElementById('menu').onclick = showMenu;
 
 document.getElementById('logo').onclick = function () {
     location.href='/'
 };
 
-function showMenu() {
-    console.log("menu");
-}
+document.getElementById('menu').addEventListener('click', function() {
+    document.getElementById('side-menu').classList.add('open-menu');
+});
 
-function showSettings() {
-    console.log("settings");
-}
-
+document.getElementById('close-menu').addEventListener('click', function() {
+    document.getElementById('side-menu').classList.remove('open-menu');
+});
 
 function changeLanguage(language) {
-    document.getElementById('selected-lang').innerText = language.toUpperCase();
-    localStorage.setItem('selectedLanguage', language);
+    console.log("Changing language to:", language);
+    document.getElementById('selected-lang').textContent = language.toUpperCase();
+    document.cookie = "lang=" + language + ";path=/";
     closeDropdown();
     window.location.href = window.location.pathname + '?lang=' + language;
 }
 
 function closeDropdown() {
-    var dropdown = document.querySelector('.language-dropdown .dropdown');
+    let dropdown = document.querySelector('.language-dropdown .dropdown');
     dropdown.style.display = 'none';
 }
 
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
 function setLanguageFromStorage() {
-    var savedLanguage = localStorage.getItem('selectedLanguage');
-    if (savedLanguage) {
-        document.getElementById('selected-lang').innerText = savedLanguage.toUpperCase();
+    let lang = getCookie("lang");
+    if (lang) {
+        document.getElementById('selected-lang').textContent = lang.toUpperCase();
     }
 }
 
 document.getElementById('selected-language').addEventListener('click', function(event) {
     event.stopPropagation();
-    var dropdown = document.querySelector('.language-dropdown .dropdown');
+    let dropdown = document.querySelector('.language-dropdown .dropdown');
     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
 });
 
 document.addEventListener('click', closeDropdown);
 
 window.addEventListener('load', setLanguageFromStorage);
-
-

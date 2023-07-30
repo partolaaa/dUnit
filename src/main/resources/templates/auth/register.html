@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title th:text="#{register.title}"></title>
     <link rel="stylesheet" th:href="@{/css/global.css}">
     <link rel="stylesheet" th:href="@{/css/auth.css}">
 </head>
@@ -12,23 +12,23 @@
     <img src="/img/logoFade.png" alt="logo">
     <form th:method="POST" th:action="@{/auth/register}">
         <div>
-            <label for="name-input" th:text="#{login.name}"></label>
+            <label for="name-input" th:text="#{register.username}"></label>
             <input type="text" id="name-input" name="username" required>
         </div>
         <div>
-            <label for="login-input" th:text="#{login.email}"></label>
+            <label for="login-input" th:text="#{register.email}"></label>
             <input type="text" id="login-input" name="email" required>
         </div>
         <div>
-            <label for="password-input" th:text="#{login.password}"></label>
+            <label for="password-input" th:text="#{register.password}"></label>
             <input type="password" id="password-input" name="password" required>
         </div>
         <div class="submit-btn-centered">
-            <button type="submit" th:text="#{login.submit.register}"></button>
+            <button type="submit" th:text="#{register.submit}"></button>
         </div>
     </form>
     <div>
-        <p th:text="#{login.have.acc}"></p><a th:href="@{/auth/login}" th:text="#{login.login}"></a>
+        <p th:text="#{register.registered}"></p><a th:href="@{/auth/login}" th:text="#{register.login}"></a>
     </div>
 </div>
 

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title th:text="#{login.title}"></title>
     <link rel="stylesheet" th:href="@{/css/global.css}">
     <link rel="stylesheet" th:href="@{/css/auth.css}">
 </head>
@@ -20,11 +20,11 @@
             <input type="password" id="password-input" name="password" required>
         </div>
         <div class="submit-btn-centered">
-            <button type="submit" th:text="#{login.submit.login}"></button>
+            <button type="submit" th:text="#{login.submit}"></button>
         </div>
     </form>
     <div>
-        <p th:text="#{login.new.user}"></p><a th:href="@{/auth/register}" th:text="#{login.create}"></a>
+        <p th:text="#{login.new}"></p><a th:href="@{/auth/register}" th:text="#{login.register}"></a>
     </div>
 </div>
 

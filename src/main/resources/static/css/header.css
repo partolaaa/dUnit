@@ -12,6 +12,17 @@ header > div > * {
     margin-left: 20px;
     cursor: pointer;
 }
+header > div a {
+    color: var(--p-color);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+header > div a:hover {
+    text-decoration: underline;
+    color: var(--highlight-color);
+}
+
 header > div > *:nth-child(1){
     margin-left: 0;
 }
@@ -25,6 +36,10 @@ ion-icon {
     color: var(--p-color);
 }
 
+
+/********* Language Selection *********/
+
+
 .language-dropdown {
     position: relative;
     display: inline-block;
@@ -32,17 +47,21 @@ ion-icon {
 
 .selected-language {
     background-color: transparent;
-    border: 1px solid #8d8d8c;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     padding: 5px 10px;
     color: var(--p-color);
     cursor: pointer;
+    transition: 0.3s;
+}
+.selected-language:hover {
+    color: white;
 }
 
 .dropdown {
     display: none;
     position: absolute;
-    border: 1px solid #8d8d8c;
+    border: 1px solid var(--border-color);
     background-color: white;
     border-radius: 5px;
 }
@@ -55,6 +74,64 @@ ion-icon {
 
 .option:hover {
     background-color: #f0f0f0;
+}
+
+
+/******* Side menu *********/
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: var(--secondary-color);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    margin-left: 0;
+}
+
+.side-menu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--p-color);
+    display: block;
+    padding: 0;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+.side-menu a:hover {
+    color: #f1f1f1;
+}
+
+.side-menu > div {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+}
+.side-menu ion-icon {
+    font-size: 24px;
+}
+
+.close-menu {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 36px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close-menu:hover {
+    color: var(--highlight-color);
+}
+
+.open-menu {
+    left: 0;
 }
 
 
