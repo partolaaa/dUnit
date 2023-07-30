@@ -1,6 +1,7 @@
 CREATE TABLE users (
                        id SERIAL PRIMARY KEY,
-                       name VARCHAR(255),
+                       username VARCHAR(100) UNIQUE,
+                       name VARCHAR(255) NOT NULL,
                        email VARCHAR(255) UNIQUE,
                        password VARCHAR(255),
                        banned BOOLEAN DEFAULT FALSE,
@@ -8,6 +9,7 @@ CREATE TABLE users (
                        active BOOLEAN DEFAULT TRUE,
                        total_transactions INT DEFAULT 0,
                        balance DECIMAL(10, 2) DEFAULT 0.00,
+                       currency VARCHAR(3) DEFAULT 'USD' CHECK (currency IN ('USD', 'PLN', 'UAH')),
                        rating DECIMAL(3, 2) DEFAULT 0,
                        registered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

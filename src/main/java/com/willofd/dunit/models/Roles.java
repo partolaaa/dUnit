@@ -1,4 +1,4 @@
-package com.willofd.dunit.entity;
+package com.willofd.dunit.models;
 
 import lombok.RequiredArgsConstructor;
 

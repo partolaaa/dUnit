@@ -2,7 +2,7 @@ package com.willofd.dunit.services.impl;
 
 
 import com.willofd.dunit.dao.SimpleUserDAO;
-import com.willofd.dunit.entity.SimpleUser;
+import com.willofd.dunit.entities.SimpleUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

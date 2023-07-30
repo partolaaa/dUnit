@@ -1,10 +1,10 @@
 package com.willofd.dunit.controllers.auth;
 
-import com.willofd.dunit.config.AuthenticationCreator;
-import com.willofd.dunit.entity.SimpleUser;
-import com.willofd.dunit.services.impl.SimpleUserServiceImpl;
+import com.willofd.dunit.entities.SimpleUser;
+import com.willofd.dunit.services.AuthService;
+import com.willofd.dunit.services.SimpleUserService;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,31 +18,21 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("auth")
+@RequiredArgsConstructor
 public class AuthController {
-    private final SimpleUserServiceImpl simpleUserService;
+    private final SimpleUserService simpleUserService;
+    private final AuthService authService;
     private final PasswordEncoder passwordEncoder;
-    private final AuthenticationCreator auth;
-
-    @Autowired
-    public AuthController(SimpleUserServiceImpl simpleUserService, PasswordEncoder passwordEncoder, AuthenticationCreator auth) {
-        this.simpleUserService = simpleUserService;
-        this.passwordEncoder = passwordEncoder;
-        this.auth = auth;
-    }
 
     @GetMapping("/login")
-    public String login(@RequestParam(required = false) String lang,
-                        Model model) {
-        model.addAttribute("lang", lang);
-        return "auth/login";
+    public String login() {
+        return authService.redirectIfLogged("redirect:/", "auth/login");
     }
 
     @GetMapping("/register")
-    public String register(@RequestParam(required = false) String lang,
-                           Model model) {
-        model.addAttribute("lang", lang);
+    public String register(Model model) {
         model.addAttribute(new SimpleUser());
-        return "auth/register";
+        return authService.redirectIfLogged("redirect:/", "auth/register");
     }
 
     @PostMapping("/register")

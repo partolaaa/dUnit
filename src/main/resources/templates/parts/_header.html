@@ -1,0 +1,23 @@
+<header>
+    <div>
+        <ion-icon id="menu" name="menu-outline"></ion-icon>
+        <img id="logo" src="/img/logoFade.png" alt="logo"/>
+        <span id="profile" th:text="${headerUserInfo.username}"></span>
+    </div>
+    <div>
+        <div class="language-dropdown">
+            <div class="selected-language" id="selected-language">
+                <span id="selected-lang">EN</span>
+                <div class="dropdown">
+                    <div class="option" onclick="changeLanguage('en')">EN</div>
+                    <div class="option" onclick="changeLanguage('ua')">UA</div>
+                    <div class="option" onclick="changeLanguage('pl')">PL</div>
+                </div>
+            </div>
+        </div>
+        <span id="balance" th:text="${headerUserInfo.balance}"></span>
+        <ion-icon id="profileSettings" name="person-circle-outline"></ion-icon>
+    </div>
+
+    <script src="/js/header.js"></script>
+</header>

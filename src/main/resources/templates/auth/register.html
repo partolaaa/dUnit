@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/global.css}">
     <link rel="stylesheet" th:href="@{/css/auth.css}">
 </head>
 <body>
 
 <div class="main-container">
-    <img th:src="@{/img/logoFade.png}" alt="logo">
+    <img src="/img/logoFade.png" alt="logo">
     <form th:method="POST" th:action="@{/auth/register}">
         <div>
             <label for="name-input" th:text="#{login.name}"></label>
-            <input type="text" id="name-input" name="name" required>
+            <input type="text" id="name-input" name="username" required>
         </div>
         <div>
             <label for="login-input" th:text="#{login.email}"></label>
