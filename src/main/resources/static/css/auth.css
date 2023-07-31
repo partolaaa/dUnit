@@ -41,7 +41,7 @@
     align-items: center;
 }
 .main-container > div p {
-    color: var(--p-color);
+    color: var(--text-color);
 }
 .main-container > div a {
     color: var(--href-color);

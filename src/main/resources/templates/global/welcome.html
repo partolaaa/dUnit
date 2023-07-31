@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
+    <title th:text="#{welcome.title}"></title>
     <link rel="stylesheet" th:href="@{/css/global.css}">
 </head>
 <body>
     <div style="display: flex; justify-content: center;">
-        <p>hui</p>
+        <p th:text="#{welcome.phrase}">hui</p>
     </div>
 </body>
 </html>
